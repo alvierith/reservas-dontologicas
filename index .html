@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserva de Citas Odontológicas</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 300px;
+    }
+
+    label {
+      margin-top: 10px;
+    }
+
+    input, button {
+      margin: 5px 0;
+      padding: 8px;
+    }
+
+    #resultado {
+      margin-top: 15px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>Reserva tu Cita</h1>
+
+  <form id="reserva-form">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" required>
+
+    <label for="fecha">Fecha:</label>
+    <input type="date" id="fecha" required>
+
+    <label for="hora">Hora:</label>
+    <input type="time" id="hora" required>
+
+    <button type="submit">Reservar</button>
+  </form>
+
+  <div id="resultado"></div>
+
+  <script>
+    document.getElementById("reserva-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById("nombre").value;
+      const fecha = document.getElementById("fecha").value;
+      const hora = document.getElementById("hora").value;
+
+      document.getElementById("resultado").innerText =
+        `✅ Cita reservada para ${nombre} el ${fecha} a las ${hora}.`;
+    });
+  </script>
+</body>
+</html>
